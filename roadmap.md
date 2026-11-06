@@ -1,0 +1,3 @@
+- [x] Build the full Gameverse event page and editable event configuration from the approved brief.
+- [x] Add focused tests for official event details and registration destination.
+- [ ] Verify the page, responsive presentation, registration links, tests, and preview logs.

@@ -14,4 +14,16 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("serves the Gemini Gameverse event page at the home route", async () => {
+    const { render, screen } = await import("@testing-library/react");
+    const { Route } = await import("@/routes/index");
+    const { createElement } = await import("react");
+
+    render(createElement(Route.options.component as () => React.ReactNode));
+
+    expect(screen.getByRole("heading", { name: /create the universe/i })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /register|enter the gameverse/i }).length).toBeGreaterThan(0);
+    expect(screen.getByText("To be announced")).toBeInTheDocument();
+  });
 });
