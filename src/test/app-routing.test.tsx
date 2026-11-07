@@ -31,6 +31,6 @@ describe("App routing", () => {
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     });
-    expect(screen.getByText("To be announced")).toBeInTheDocument();
+    expect(screen.getAllByText("To be announced").length).toBeGreaterThanOrEqual(3);
   });
 });
