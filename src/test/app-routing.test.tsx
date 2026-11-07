@@ -23,7 +23,14 @@ describe("App routing", () => {
     render(createElement(Route.options.component as () => React.ReactNode));
 
     expect(screen.getByRole("heading", { name: /create the universe/i })).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: /register|enter the gameverse/i }).length).toBeGreaterThan(0);
-    expect(screen.getByText("To be announced")).toBeInTheDocument();
+    const registrationLinks = screen
+      .getAllByRole("link")
+      .filter((link) => link.getAttribute("href") === "https://forms.gle/qoKKkdprx7mh9sQh6");
+    expect(registrationLinks.length).toBeGreaterThan(0);
+    registrationLinks.forEach((link) => {
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    });
+    expect(screen.getAllByText("To be announced").length).toBeGreaterThanOrEqual(3);
   });
 });
