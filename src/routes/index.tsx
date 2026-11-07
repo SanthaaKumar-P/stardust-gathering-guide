@@ -79,9 +79,9 @@ function GameversePage() {
         <div className="hero-shading" />
         <div className="hero-portal-hud" aria-hidden="true"><span className="orbit orbit-outer" /><span className="orbit orbit-inner" /><span className="portal-cross">+</span><span className="portal-coordinate">SECTOR 07 · NO LIMITS</span></div>
         <div className="hero-content">
-          <motion.div className="eyebrow" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}><span className="eyebrow-dot" /> THE GEMINI AMBASSADOR CREATIVE EVENT</motion.div>
-          <motion.h1 initial={reduceMotion ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.1 }}>DON’T JUST<br />PLAY THE GAME.<br /><span>CREATE THE</span><br /><em>UNIVERSE.</em></motion.h1>
-          <motion.div className="hero-tagline" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.25 }}><span>ONE GOAL.</span><i /> <span>ONE ENEMY.</span><i /> <span>ONE DEADLINE.</span></motion.div>
+          <motion.div className="eyebrow" {...(reduceMotion ? { initial: false } : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.7 } })}><span className="eyebrow-dot" /> THE GEMINI AMBASSADOR CREATIVE EVENT</motion.div>
+          <motion.h1 {...(reduceMotion ? { initial: false } : { initial: { opacity: 0, y: 22 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.85, delay: 0.1 } })}>DON’T JUST<br />PLAY THE GAME.<br /><span>CREATE THE</span><br /><em>UNIVERSE.</em></motion.h1>
+          <motion.div className="hero-tagline" {...(reduceMotion ? { initial: false } : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.8, delay: 0.25 } })}><span>ONE GOAL.</span><i /> <span>ONE ENEMY.</span><i /> <span>ONE DEADLINE.</span></motion.div>
           <p className="hero-description">An AI-powered game creation night. Imagine an original world with Gemini, bring it to life with Nano Banana, and pitch it to the arena.</p>
           <div className="hero-actions">
             <Button asChild className="button-cinematic"><a {...registrationLinkProps}>ENTER THE GAMEVERSE <ArrowUpRight aria-hidden="true" /></a></Button>
@@ -99,7 +99,7 @@ function GameversePage() {
           <h2>Your next game<br />starts as an <span>idea.</span></h2>
           <div className="intro-copy"><p>This is your night to invent—not code—a game concept nobody has played before. Give it a world. Give it an unforgettable mission. Then show everyone why it deserves to be played.</p><div className="intro-stamp"><Sparkles aria-hidden="true" /><span>MADE OF<br /><b>PURE IMAGINATION</b></span></div></div>
         </div>
-        <div className="journey-grid">{creationJourney.map((step, index) => <motion.article key={step.number} className={`journey-item journey-color-${index + 1}`} initial={reduceMotion ? false : { opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.24 }} transition={{ duration: 0.58, delay: index * 0.08 }}>
+        <div className="journey-grid">{creationJourney.map((step, index) => <motion.article key={step.number} className={`journey-item journey-color-${index + 1}`} {...(reduceMotion ? { initial: false } : { initial: { opacity: 0, y: 26 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.24 }, transition: { duration: 0.58, delay: index * 0.08 } })}>
           <div className="journey-icon-wrap"><span className="journey-icon" aria-hidden="true">{step.symbol}</span><span className="journey-index">{step.number}</span></div><h3>{step.title}</h3><p>{step.detail}</p><span className="journey-connector" aria-hidden="true" />
         </motion.article>)}</div>
       </section>
@@ -107,7 +107,7 @@ function GameversePage() {
       <section id="challenge" className="challenge-section content-section">
         <div className="section-kicker"><span>02</span><span className="kicker-rule" /> THE GAME DESIGN CHALLENGE</div>
         <div className="challenge-heading"><h2>ONE GOAL.<br /><span>ONE ENEMY.</span><br />ONE DEADLINE.</h2><div className="challenge-heading-aside"><Target aria-hidden="true" /><p>Three ingredients.<br />One unforgettable game.</p></div></div>
-        <div className="challenge-grid">{challengeRules.map((rule, index) => <motion.article key={rule} className={`challenge-tile challenge-tile-${index + 1}`} initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.5, delay: index * 0.11 }}>
+        <div className="challenge-grid">{challengeRules.map((rule, index) => <motion.article key={rule} className={`challenge-tile challenge-tile-${index + 1}`} {...(reduceMotion ? { initial: false } : { initial: { opacity: 0, scale: 0.96 }, whileInView: { opacity: 1, scale: 1 }, viewport: { once: true, amount: 0.35 }, transition: { duration: 0.5, delay: index * 0.11 } })}>
           <span className="challenge-symbol" aria-hidden="true">{[<Target key="target" />, <Compass key="compass" />, <Clock3 key="clock" />][index]}</span><span className="tile-number">0{index + 1} / 03</span><h3>{["THE GOAL", "THE ENEMY", "THE DEADLINE"][index]}</h3><p>{rule}</p>
         </motion.article>)}</div>
         <div className="example-strip"><span className="example-chip"><Sparkles aria-hidden="true" /> FICTIONAL EXAMPLE</span><span className="example-title">Skybound: Last Light</span><p>Restore a drifting sky city before its final sunrise. Your only obstacle: a mischievous storm that rearranges the islands.</p><span className="example-caption">One possible starting point. Your universe should be entirely your own.</span></div>
@@ -121,7 +121,7 @@ function GameversePage() {
 
       <section id="process" className="process-section content-section">
         <div className="section-kicker"><span>04</span><span className="kicker-rule" /> THE NIGHT, STEP BY STEP</div><div className="process-heading"><h2>From what if<br />to <span>what’s next.</span></h2><p>An imaginative sprint from first thought to game-night pitch.</p></div>
-        <div className="timeline">{eventSteps.map((step, index) => <motion.div key={step} className="timeline-item" initial={reduceMotion ? false : { opacity: 0, x: -14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.55 }} transition={{ duration: 0.42, delay: index * 0.045 }}><span className="timeline-number">{String(index + 1).padStart(2, "0")}</span><span className="timeline-node" aria-hidden="true" /><span className="timeline-label">{step}</span>{index === 2 && <span className="timeline-tool">GEMINI CHAT</span>}{index === 3 && <span className="timeline-tool">GOOGLE DOCS</span>}{index === 4 && <span className="timeline-tool">NANO BANANA</span>}{index === 6 && <span className="timeline-tool">ARENA VOTE</span>}</motion.div>)}</div>
+        <div className="timeline">{eventSteps.map((step, index) => <motion.div key={step} className="timeline-item" {...(reduceMotion ? { initial: false } : { initial: { opacity: 0, x: -14 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true, amount: 0.55 }, transition: { duration: 0.42, delay: index * 0.045 } })}><span className="timeline-number">{String(index + 1).padStart(2, "0")}</span><span className="timeline-node" aria-hidden="true" /><span className="timeline-label">{step}</span>{index === 2 && <span className="timeline-tool">GEMINI CHAT</span>}{index === 3 && <span className="timeline-tool">GOOGLE DOCS</span>}{index === 4 && <span className="timeline-tool">NANO BANANA</span>}{index === 6 && <span className="timeline-tool">ARENA VOTE</span>}</motion.div>)}</div>
       </section>
 
       <section className="worlds-section content-section">
