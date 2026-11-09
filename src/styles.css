@@ -105,7 +105,7 @@
   --game-muted: oklch(0.75 0.038 285);
   --game-line: oklch(0.98 0.04 285 / 13%);
   --font-display: "Space Grotesk", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Manrope", sans-serif;
 }
 
 .dark {
